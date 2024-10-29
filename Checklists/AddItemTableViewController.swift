@@ -7,7 +7,16 @@
 
 import UIKit
 
+// Step 1. Define a delegate protocol for object B
+protocol AddItemTableViewControllerDelegate: AnyObject {
+    func addItemTableViewControllerDidCancel(_ controller: AddItemTableViewController)
+    func addItemTableViewController(_ controller: AddItemTableViewController, didFinishAdding item: ChecklistItem)
+}
+
 class AddItemTableViewController: UITableViewController, UITextFieldDelegate {
+    // Step 2. Give object B an optional weak delegate variable
+    weak var delegate: AddItemTableViewControllerDelegate?
+    
     // MARK: - Outlets
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
     @IBOutlet weak var textField: UITextField!
@@ -27,12 +36,15 @@ class AddItemTableViewController: UITableViewController, UITextFieldDelegate {
     
     // MARK: - Actions
     @IBAction func cancelTapped() {
-        navigationController?.popViewController(animated: true)
+        // Step 3. Update obj B to send messages to delegate when something happens
+        delegate?.addItemTableViewControllerDidCancel(self)
     }
     
     @IBAction func doneTapped() {
-        print("Contents of the text field: \(textField.text!)")
-        navigationController?.popViewController(animated: true)
+        let item = ChecklistItem()
+        item.text = textField.text!
+        // Step 3.
+        delegate?.addItemTableViewController(self, didFinishAdding: item)
     }
     
     
