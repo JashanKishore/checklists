@@ -73,7 +73,7 @@ class ChecklistViewController: UITableViewController, AddItemTableViewController
     func configureCheckMark(for cell: UITableViewCell, with item: ChecklistItem) {
         let label = cell.viewWithTag(1001) as! UILabel
         if item.checked {
-            label.text = "√"
+            label.text = "✅"
         } else {
             label.text = ""
         }
