@@ -17,6 +17,8 @@ class AddItemTableViewController: UITableViewController, UITextFieldDelegate {
     // Step 2. Give object B an optional weak delegate variable
     weak var delegate: AddItemTableViewControllerDelegate?
     
+    var itemToEdit: ChecklistItem?
+    
     // MARK: - Outlets
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
     @IBOutlet weak var textField: UITextField!
@@ -24,6 +26,11 @@ class AddItemTableViewController: UITableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
+        
+        if let itemToEdit = itemToEdit {
+            title = "Edit Item"
+            textField.text = itemToEdit.text
+        }
     }
     
     
