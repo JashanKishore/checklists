@@ -84,13 +84,13 @@ class ChecklistViewController: UITableViewController, AddItemTableViewController
         label.text = item.text
     }
     
-    
     // Delegate function to delete rows from model and view using swipe gesture
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         items.remove(at: indexPath.row)
         let indexPaths = [indexPath]
         tableView.deleteRows(at: indexPaths, with: .automatic)
     }
+    
     
     // Step 4. Conform to delegate protocol - Implement methods
     // MARK: - Add Item View Controller Delegates
@@ -106,6 +106,17 @@ class ChecklistViewController: UITableViewController, AddItemTableViewController
         tableView.insertRows(at: indexPaths, with: .automatic)
         navigationController?.popViewController(animated: true)
     }
+    
+    func addItemTableViewController(_ controller: AddItemTableViewController, didFinishEditing item: ChecklistItem) {
+        if let index = items.firstIndex(of: item) {
+            let indexPath = IndexPath(row: index, section: 0)
+            if let cell = tableView.cellForRow(at: indexPath) {
+                configureText(for: cell, with: item)
+            }
+        }
+        navigationController?.popViewController(animated: true)
+    }
+    
     
     // Step 5. Tell Obj B that Obj A is its delegate
     // MARK: - Navigation
