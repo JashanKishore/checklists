@@ -1,5 +1,5 @@
 //
-//  AddItemTableViewController.swift
+//  itemDetailViewController.swift
 //  Checklists
 //
 //  Created by Jashan kishore on 29/10/2024.
@@ -8,15 +8,15 @@
 import UIKit
 
 // Step 1. Define a delegate protocol for object B
-protocol AddItemTableViewControllerDelegate: AnyObject {
-    func addItemTableViewControllerDidCancel(_ controller: AddItemTableViewController)
-    func addItemTableViewController(_ controller: AddItemTableViewController, didFinishAdding item: ChecklistItem)
-    func addItemTableViewController(_ controller: AddItemTableViewController, didFinishEditing item: ChecklistItem)
+protocol ItemDetailViewControllerDelegate: AnyObject {
+    func itemDetailViewControllerDidCancel(_ controller: ItemDetailViewController)
+    func itemDetailViewController(_ controller: ItemDetailViewController, didFinishAdding item: ChecklistItem)
+    func itemDetailViewController(_ controller: ItemDetailViewController, didFinishEditing item: ChecklistItem)
 }
 
-class AddItemTableViewController: UITableViewController, UITextFieldDelegate {
+class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     // Step 2. Give object B an optional weak delegate variable
-    weak var delegate: AddItemTableViewControllerDelegate?
+    weak var delegate: ItemDetailViewControllerDelegate?
     
     var itemToEdit: ChecklistItem?
     
@@ -46,18 +46,18 @@ class AddItemTableViewController: UITableViewController, UITextFieldDelegate {
     // MARK: - Actions
     @IBAction func cancelTapped() {
         // Step 3. Update obj B to send messages to delegate when something happens
-        delegate?.addItemTableViewControllerDidCancel(self)
+        delegate?.itemDetailViewControllerDidCancel(self)
     }
     
     @IBAction func doneTapped() {
         if let item = itemToEdit {
             item.text = textField.text!
-            delegate?.addItemTableViewController(self, didFinishEditing: item)
+            delegate?.itemDetailViewController(self, didFinishEditing: item)
         } else {
             let item = ChecklistItem()
             item.text = textField.text!
             // Step 3.
-            delegate?.addItemTableViewController(self, didFinishAdding: item)
+            delegate?.itemDetailViewController(self, didFinishAdding: item)
         }
     }
     
