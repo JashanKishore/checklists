@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		1851D8772CD31FFD000B784B /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1851D8762CD31FFD000B784B /* ListDetailViewController.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		1846C9292CC9DF47009CF362 /* Checklists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Checklists.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1851D8762CD31FFD000B784B /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -45,6 +50,7 @@
 		1846C9202CC9DF47009CF362 = {
 			isa = PBXGroup;
 			children = (
+				1851D8762CD31FFD000B784B /* ListDetailViewController.swift */,
 				1846C92B2CC9DF47009CF362 /* Checklists */,
 				1846C92A2CC9DF47009CF362 /* Products */,
 			);
@@ -132,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1851D8772CD31FFD000B784B /* ListDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

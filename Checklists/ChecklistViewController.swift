@@ -10,11 +10,13 @@ import UIKit
 // Step 4. Make ObjA conform to delegate protocol
 class ChecklistViewController: UITableViewController, ItemDetailViewControllerDelegate {
     var items = [ChecklistItem]()
+    var checklist: Checklist! //! allows checklist object to be nil until viewDidLoad happens
 
     override func viewDidLoad() {
         super.viewDidLoad()
         loadChecklistItems()
         navigationItem.largeTitleDisplayMode = .never
+        title = checklist.name
     }
     
     
