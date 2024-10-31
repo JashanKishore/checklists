@@ -42,12 +42,14 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate {
     }
     
     @IBAction func done() {
+        print("Done tapped")
         if let checklist = checklistToEdit {
             checklist.name = textField.text!
             delegate?.listDetailViewController(self, didFinishEditing: checklist)
         } else {
             let checklist = Checklist(name: textField.text!)
             delegate?.listDetailViewController(self, didFinishAdding: checklist)
+            print("Adding new checklist:", checklist.name)
         }
     }
     
