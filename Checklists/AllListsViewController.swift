@@ -16,17 +16,23 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         super.viewDidLoad()
         setup()
         
-        var list = Checklist(name: "First List")
+        var list = Checklist(name: "Birthdays")
         lists.append(list)
         
-        list = Checklist(name: "Second List")
+        list = Checklist(name: "Groceries")
         lists.append(list)
         
-        list = Checklist(name: "Third List")
+        list = Checklist(name: "Cool Apps")
         lists.append(list)
         
-        list = Checklist(name: "Fourth List")
+        list = Checklist(name: "To Do")
         lists.append(list)
+        
+        for list in lists {
+            let item = ChecklistItem()
+            item.text = "Item for \(list.name)"
+            list.items.append(item)
+        }
     }
     
     func setup() {
