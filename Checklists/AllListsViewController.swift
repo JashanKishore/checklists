@@ -23,7 +23,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         super.viewDidAppear(animated)
         navigationController?.delegate = self
         
-        let index = UserDefaults.standard.integer(forKey: "ChecklistIndex")
+        let index = dataModel.indexOfSelectedChecklist
         if index != -1 {
             let checklist = dataModel.lists[index]
             performSegue(withIdentifier: "ShowChecklist", sender: checklist)
@@ -49,7 +49,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         let checklist = dataModel.lists[indexPath.row]
         performSegue(withIdentifier: "ShowChecklist", sender: checklist)
         // Write the row index of the selected list into UserDefaults
-        UserDefaults.standard.set(indexPath.row, forKey: "ChecklistIndex")
+        dataModel.indexOfSelectedChecklist = indexPath.row
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -91,7 +91,6 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     func listDetailViewController(_ controller: ListDetailViewController, didFinishAdding checklist: Checklist) {
         let newRowIndex = dataModel.lists.count
         dataModel.lists.append(checklist)
-        print("didFinishAdding called")
         
         let indexPath = IndexPath(row: newRowIndex, section: 0)
         let indexPaths = [indexPath]
@@ -116,7 +115,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         // Was the back button tapped?
         if viewController === self {
-            UserDefaults.standard.set(-1, forKey: "ChecklistIndex")
+            dataModel.indexOfSelectedChecklist = -1
         }
     }
 
