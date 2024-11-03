@@ -6,13 +6,8 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		1851D8AE2CD494FB000B784B /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1851D8AD2CD494FB000B784B /* DataModel.swift */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
 		1846C9292CC9DF47009CF362 /* Checklists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Checklists.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1851D8AD2CD494FB000B784B /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -50,7 +45,6 @@
 		1846C9202CC9DF47009CF362 = {
 			isa = PBXGroup;
 			children = (
-				1851D8AD2CD494FB000B784B /* DataModel.swift */,
 				1846C92B2CC9DF47009CF362 /* Checklists */,
 				1846C92A2CC9DF47009CF362 /* Products */,
 			);
@@ -138,7 +132,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1851D8AE2CD494FB000B784B /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
