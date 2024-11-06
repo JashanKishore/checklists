@@ -253,14 +253,14 @@
                             <tableViewSection id="Eb4-A4-3lf">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="lME-gu-jQY">
-                                        <rect key="frame" x="0.0" y="18" width="375" height="27.5"/>
+                                        <rect key="frame" x="0.0" y="18" width="375" height="27"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lME-gu-jQY" id="B4I-0t-6qi">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="27.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="27"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of item" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jrf-RK-KX4">
-                                                    <rect key="frame" x="16" y="4" width="343" height="19.5"/>
+                                                    <rect key="frame" x="16" y="4" width="343" height="19"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                     <connections>
@@ -282,7 +282,7 @@
                             <tableViewSection id="Ng4-4h-aWd">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="QxJ-5n-vtt">
-                                        <rect key="frame" x="0.0" y="81.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="81" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QxJ-5n-vtt" id="V8P-X5-SIe">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -296,6 +296,10 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jqQ-6S-VjC">
                                                     <rect key="frame" x="308" y="6" width="51" height="31.5"/>
+                                                    <color key="onTintColor" red="0.015686274510000001" green="0.66274509800000003" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <connections>
+                                                        <action selector="shouldRemindSwitchToggled:" destination="8Fe-wp-3Au" eventType="valueChanged" id="Aw0-cU-JkW"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -309,7 +313,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="N45-Dp-3Qv">
-                                        <rect key="frame" x="0.0" y="125.5" width="375" height="44.5"/>
+                                        <rect key="frame" x="0.0" y="125" width="375" height="44.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="N45-Dp-3Qv" id="C8n-ML-GOb">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
@@ -322,7 +326,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="lCI-Ti-LiV">
-                                                    <rect key="frame" x="129" y="4" width="230" height="36.5"/>
+                                                    <rect key="frame" x="129" y="4" width="230" height="36"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="230" id="PBi-pj-SFD"/>
                                                     </constraints>

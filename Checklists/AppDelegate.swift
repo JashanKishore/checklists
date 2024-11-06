@@ -18,10 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         center.requestAuthorization(options: [.alert, .sound]) {
             granted, error in
             if granted {
-                print("Notification permission granted")
                 center.delegate = self
             } else {
-                print("Notification permission denied")
+                // do nothing
             }
         }
         
