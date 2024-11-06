@@ -17,29 +17,42 @@ protocol ItemDetailViewControllerDelegate: AnyObject {
 class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     // Step 2. Give object B an optional weak delegate variable
     weak var delegate: ItemDetailViewControllerDelegate?
-    
     var itemToEdit: ChecklistItem?
+    
     
     // MARK: - Outlets
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
     @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var shouldRemindSwitch: UISwitch!
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
+        configureDatePicker()
         
         if let itemToEdit = itemToEdit {
             title = "Edit Item"
             textField.text = itemToEdit.text
             doneBarButton.isEnabled = true
+            shouldRemindSwitch.isOn = itemToEdit.shouldRemind
+            datePicker.date = itemToEdit.dueDate
         }
     }
-    
     
     // Automatically show keyboard when visiting this screen
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         textField.becomeFirstResponder()
+    }
+    
+    func configureDatePicker() {
+        // Set minimum date of datePicker to current date
+        let minDate = Date()
+        datePicker.minimumDate = minDate
+        // Set default date and time of datePicker to current date and time plus fifteen minutes
+        let defaultDate = minDate.addingTimeInterval(900)
+        datePicker.date = defaultDate
     }
     
     
