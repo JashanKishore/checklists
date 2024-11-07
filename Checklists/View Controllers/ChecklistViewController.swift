@@ -49,10 +49,10 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         return checklist.items.count
     }
     
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChecklistItem", for: indexPath)
         let item = checklist.items[indexPath.row]
-        
         configureCheckMark(for: cell, with: item)
         configureText(for: cell, with: item)
         configureDate(for: cell, with: item)
@@ -85,15 +85,25 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     }
     
     func itemDetailViewController(_ controller: ItemDetailViewController, didFinishAdding item: ChecklistItem) {
-        let newRowIndex = checklist.items.count
+        checklist.items.append(item)
+        checklist.sortItems()
+        tableView.reloadData()
+        navigationController?.popViewController(animated: true)
+        /*
+         let newRowIndex = checklist.items.count
         checklist.items.append(item)
         let indexPath = IndexPath(row: newRowIndex, section: 0)
         let indexPaths = [indexPath]
         tableView.insertRows(at: indexPaths, with: .automatic)
         navigationController?.popViewController(animated: true)
+         */
     }
     
     func itemDetailViewController(_ controller: ItemDetailViewController, didFinishEditing item: ChecklistItem) {
+        checklist.sortItems()
+        tableView.reloadData()
+        navigationController?.popViewController(animated: true)
+        /*
         if let index = checklist.items.firstIndex(of: item) {
             let indexPath = IndexPath(row: index, section: 0)
             if let cell = tableView.cellForRow(at: indexPath) {
@@ -101,6 +111,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
             }
         }
         navigationController?.popViewController(animated: true)
+         */
     }
     
     
