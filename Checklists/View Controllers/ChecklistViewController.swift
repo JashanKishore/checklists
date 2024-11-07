@@ -10,35 +10,23 @@ import UIKit
 // Step 4. Make ObjA conform to delegate protocol
 class ChecklistViewController: UITableViewController, ItemDetailViewControllerDelegate {
     var checklist: Checklist! //! allows checklist object to be nil until viewDidLoad happens
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
         title = checklist.name
     }
     
-    
-    // MARK: - Table View Data Source
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return checklist.items.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ChecklistItem", for: indexPath)
-        let item = checklist.items[indexPath.row]
-        configureCheckMark(for: cell, with: item)
-        configureText(for: cell, with: item)
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath) {
-            let item = checklist.items[indexPath.row]
-            item.checked.toggle()
-            configureCheckMark(for: cell, with: item)
-            configureText(for: cell, with: item)
-        }
-        tableView.deselectRow(at: indexPath, animated: true)
+    // Configure date to formatted string
+    func configureDate(for cell: UITableViewCell, with item: ChecklistItem) {
+        let label = cell.viewWithTag(1002) as! UILabel
+        let formatter = DateFormatter()
+        
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        
+        label.text = "Due: \(formatter.string(from: item.dueDate))"
+        
     }
         
     func configureCheckMark(for cell: UITableViewCell, with item: ChecklistItem) {
@@ -53,6 +41,33 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     func configureText(for cell: UITableViewCell, with item: ChecklistItem) {
         let label = cell.viewWithTag(1000) as! UILabel
         label.text = item.text
+    }
+    
+    
+    // MARK: - Table View Data Source
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return checklist.items.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ChecklistItem", for: indexPath)
+        let item = checklist.items[indexPath.row]
+        
+        configureCheckMark(for: cell, with: item)
+        configureText(for: cell, with: item)
+        configureDate(for: cell, with: item)
+        
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) {
+            let item = checklist.items[indexPath.row]
+            item.checked.toggle()
+            configureCheckMark(for: cell, with: item)
+            configureText(for: cell, with: item)
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     // Delegate function to delete rows from model and view using swipe gesture

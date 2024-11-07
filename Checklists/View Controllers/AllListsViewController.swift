@@ -36,7 +36,6 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
 
     
     // MARK: - Table view data source
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataModel.lists.count
     }
@@ -81,7 +80,6 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     
     
     // MARK: - Navigation
-    
     // Here you get a chance to set the properties of the new VC before it becomes visible
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowChecklist" {
@@ -104,7 +102,6 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     }
     
     // MARK: - List Detail View Controller Delegates
-    
     func listDetailViewControllerDidCancel(_ controller: ListDetailViewController) {
         navigationController?.popViewController(animated: true)
     }
@@ -124,7 +121,6 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     
     
     // MARK: - Navigation Controller Delegates
-    
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         // Was the back button tapped?
         if viewController === self {
