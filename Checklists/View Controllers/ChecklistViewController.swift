@@ -89,29 +89,12 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         checklist.sortItems()
         tableView.reloadData()
         navigationController?.popViewController(animated: true)
-        /*
-         let newRowIndex = checklist.items.count
-        checklist.items.append(item)
-        let indexPath = IndexPath(row: newRowIndex, section: 0)
-        let indexPaths = [indexPath]
-        tableView.insertRows(at: indexPaths, with: .automatic)
-        navigationController?.popViewController(animated: true)
-         */
     }
     
     func itemDetailViewController(_ controller: ItemDetailViewController, didFinishEditing item: ChecklistItem) {
         checklist.sortItems()
         tableView.reloadData()
         navigationController?.popViewController(animated: true)
-        /*
-        if let index = checklist.items.firstIndex(of: item) {
-            let indexPath = IndexPath(row: index, section: 0)
-            if let cell = tableView.cellForRow(at: indexPath) {
-                configureText(for: cell, with: item)
-            }
-        }
-        navigationController?.popViewController(animated: true)
-         */
     }
     
     

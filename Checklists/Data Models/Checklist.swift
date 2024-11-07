@@ -26,7 +26,6 @@ class Checklist: NSObject, Codable {
         return count
     }
     
-    // Sort items in checklist by their due date by comparing date objects
     func sortItems() {
         items.sort { $0.dueDate < $1.dueDate }
     }
